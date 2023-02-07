@@ -1,4 +1,5 @@
 import random
+import time
 
 q = '''
   O
@@ -92,6 +93,7 @@ count = 0
 i = 0
 while i < len(x)+6:
     print(list1)
+    time.sleep(2)
     guess = input("type me a letter: ").lower()
     for letter in range(len(x)):
         position = x[letter]
@@ -107,6 +109,7 @@ while i < len(x)+6:
         elif count == 3:
             print(e)
             do = input("Do you want a hint(y/n): ").lower()
+            time.sleep(2)
             if do == "y":
                 hint()
         elif count == 4:
@@ -121,8 +124,10 @@ while i < len(x)+6:
 
     if "_" not in list1:
         print("you have found the word")
+        print(x)
         break
 
-print(list1)
+
 if "_" in list1:
-    print("game over you have not found the complete word")
+    print("game over you have not found the word")
+    print("the word was ", x)
